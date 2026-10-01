@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Kalkulator PWA modern dengan mode scientific, riwayat dan tema premium.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <title>NovaCalc — Kalkulator</title>
+</head>
+<body>
+  <div class="bg-orb orb-a"></div><div class="bg-orb orb-b"></div>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand"><div class="brand-icon">N</div><div><b>NovaCalc</b><span>Smart Calculator</span></div></div>
+      <div class="top-actions">
+        <button id="themeBtn" class="icon-btn" aria-label="Ganti tema">☼</button>
+        <button id="installBtn" class="install-btn">＋ Install</button>
+      </div>
+    </header>
+
+    <section class="calculator-card">
+      <div class="display">
+        <div class="display-tools">
+          <span id="modeLabel">STANDARD</span>
+          <button id="copyBtn" class="copy-btn">Copy</button>
+        </div>
+        <div id="historyLine" class="history-line"></div>
+        <div id="displayValue" class="display-value">0</div>
+      </div>
+
+      <div class="mode-row">
+        <button class="mode active" data-mode="standard">Standard</button>
+        <button class="mode" data-mode="scientific">Scientific</button>
+        <button id="historyBtn" class="mode">History</button>
+      </div>
+
+      <div id="scientificPad" class="scientific-pad hidden">
+        <button data-action="func" data-value="sin(">sin</button>
+        <button data-action="func" data-value="cos(">cos</button>
+        <button data-action="func" data-value="tan(">tan</button>
+        <button data-action="func" data-value="sqrt(">√</button>
+        <button data-action="func" data-value="log(">log</button>
+        <button data-action="func" data-value="ln(">ln</button>
+        <button data-action="func" data-value="abs(">abs</button>
+        <button data-action="constant" data-value="π">π</button>
+        <button data-action="constant" data-value="e">e</button>
+        <button data-action="insert" data-value="^">xʸ</button>
+      </div>
+
+      <div class="keypad">
+        <button class="utility" data-action="clear">AC</button>
+        <button class="utility" data-action="back">⌫</button>
+        <button class="utility" data-action="percent">%</button>
+        <button class="operator" data-value="÷">÷</button>
+
+        <button data-value="7">7</button><button data-value="8">8</button><button data-value="9">9</button><button class="operator" data-value="×">×</button>
+        <button data-value="4">4</button><button data-value="5">5</button><button data-value="6">6</button><button class="operator" data-value="−">−</button>
+        <button data-value="1">1</button><button data-value="2">2</button><button data-value="3">3</button><button class="operator" data-value="+">+</button>
+        <button class="zero" data-value="0">0</button><button data-value=".">.</button><button class="equals" data-action="equals">=</button>
+      </div>
+    </section>
+
+    <aside id="historyPanel" class="history-panel">
+      <div class="history-head"><b>Calculation History</b><button id="clearHistory">Clear</button></div>
+      <div id="historyList" class="history-list"><div class="empty">Belum ada perhitungan.</div></div>
+    </aside>
+
+    <footer>NovaCalc <span>•</span> PWA • Offline Ready</footer>
+  </main>
+<script src="app.js"></script>
+</body>
+</html>
